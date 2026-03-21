@@ -1,19 +1,52 @@
 ---
-name: "hot-paper-wechat-publish"  
-description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when user requests daily tech/AI news report or automated daily publishing."
+name: "hot-paper-wechat-publish"
+description: "生成科技/AI热点日报并自动发布到微信公众号草稿箱。Invoke when user requests daily tech/AI news report or automated daily publishing. "
 ---
 
 # Hot Paper WeChat Publish
 
-本技能用于生成高质量的科技行业热点日报和 AI 行业热点日报，并自动发布到微信公众号草稿箱。
+本技能用于生成高质量的科技行业热点日报和AI行业热点日报，并自动发布到微信公众号草稿箱。
 
 ## 功能概述
 
-- **热点检索**：全面检索科技领域和 AI 领域的当前热点事件
+- **热点检索**：全面检索科技领域和AI领域的当前热点事件
 - **信息采集**：深入搜集每个热点话题的详细信息
 - **系统整理**：系统化整理与专业化分析信息
 - **日报生成**：生成结构清晰、内容详实的热点日报
 - **自动发布**：自动发布到微信公众号草稿箱
+
+## 环境准备
+
+### 1.1 安装 wenyan-cli
+
+wenyan-cli 是微信公众号发布的命令行工具。
+
+```bash
+# 使用 npm 全局安装
+npm install -g wenyan-cli
+
+# 验证安装
+wenyan --version
+```
+
+### 1.2 配置微信公众号
+
+```bash
+# 设置 AppID 和 AppSecret
+export WECHAT_APP_ID="你的AppID"
+export WECHAT_APP_SECRET="你的AppSecret"
+```
+
+> **提示**：AppID 和 AppSecret 需要在微信公众平台后台获取。登录微信公众平台 → 设置与开发 → 基本配置。
+
+### 1.3 创建必要的目录
+
+```bash
+# 创建日报输出目录
+mkdir -p {skill_dir}/daily_reports
+
+
+```
 
 ## 执行流程
 
@@ -26,7 +59,7 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 **筛选标准**：
 
 - 科技领域相关热点
-- AI 领域相关热点
+-AI领域相关热点
 - 热度值较高的话题
 - 影响力较大的事件
 
@@ -34,7 +67,7 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 
 读取并监控以下官方渠道的最新消息：
 
-**信息源文件**：`{skill_dir}/assets/source_links.md`（或在工作目录创建 `company_links.md` 软链接）
+**信息源文件**：`{skill_dir}/assets/source_links.md`
 
 **监控范围**：
 
@@ -42,15 +75,15 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 
 **国内科技巨头**：百度、华为、腾讯、阿里巴巴、京东、字节跳动
 
-**国际 AI 公司**：OpenAI、Google DeepMind、Anthropic、Mistral AI、Cohere
+**国际AI公司**：OpenAI、Google DeepMind、Anthropic、Mistral AI、Cohere
 
-**国内 AI 公司**：百度文心、智谱 AI、月之暗面 AI、阶跃星辰 AI、零一 AI
+**国内AI公司**：百度文心、智谱 AI、月之暗面 AI、阶跃星辰 AI、零一 AI
 
-**科技媒体**：36Kr、TechNode、GeekPark、雷锋网、新浪科技、TechCrunch、The Verge、Wired
+**科技媒体**：36Kr、TechNode、GeekPark、雷锋网、新浪科技、TechCrunch、The Verge、Wired、爱范儿、InfoQ
 
 **监控方法**：
 
-1. 从信息源文件（`{skill_dir}/assets/source_links.md`）读取官方链接，或将其复制/软链接到工作目录的 `company_links.md`
+1. 从信息源文件（`{skill_dir}/assets/source_links.md`）读取官方链接
 2. 使用 运用 `WebSearch` 或`WebFetch` 工具获取各官网的最新动态
 3. 筛选出 24 小时内发布的重要消息
 
@@ -75,32 +108,16 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 
 **操作流程**：
 
-1. **使用** **`WebSearch`** **广泛搜索**
-   ```
-   搜索关键词示例：
-   - "[热点事件] 详细情况"
-   - "[公司名称] 最新发布"
-   - "[技术名称] 行业影响"
-   - "[产品名] 专家评价"
-   ```
-2. **使用** **`WebFetch`** **抓取关键信息源**
-   ```
-   抓取目标：
-   - 公司官网博客/新闻稿
-   - 权威科技媒体深度报道
-   - 行业分析报告页面
-   ```
-3. **信息交叉验证**
-   - 对比多个来源的信息
-   - 优先采用官方渠道信息
-   - 标注信息来源和发布时间
+1. 使用 `Tavily Search` 广泛搜索
+2. 使用 `Tavily Extract` 抓取关键信息源
+3. 信息交叉验证
 
 ### 第二阶段：信息处理与分析
 
 #### 2.1 信息去重与验证
 
 - 去除重复信息
-- 交叉验证信息来源
+- 交叉验证信息来源（至少2个独立来源）
 - 确保信息准确性
 
 #### 2.2 分类整理
@@ -108,7 +125,7 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 **按领域分类**：
 
 - 科技综合
-- AI 技术
+-AI技术
 - 产品发布
 - 投融资
 - 行业政策
@@ -141,26 +158,16 @@ description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when
 ---
 title: 科技热点日报|YYYY-MM-DD
 cover: asset/科技日报.png
-tags:
-  - 科技日报
-  - AI
-  - 行业动态
-summary: 今日科技/AI 行业热点事件汇总，包含 X 条重大发布、X 起投融资事件
 ---
 ```
 
-> **提示**：AI 热点日报请使用 `cover: asset/AI日报.png`
+> **提示**：AI热点日报请使用 `cover: asset/AI日报.png`
 
 **正文格式**：
 
 ```markdown
-# 🔥 科技热点日报 | YYYY-MM-DD
-
 ## 📊 今日概览
-- 热点事件总数：X 条
-- 重大发布：X 项
-- 投融资事件：X 起
-- 行业政策：X 项
+100-200字总结今日热点事件
 
 ---
 
@@ -187,45 +194,9 @@ summary: 今日科技/AI 行业热点事件汇总，包含 X 条重大发布、X
 
 ---
 
-## 📈 重要动态
-
-### [标题 2]
-**热度指数**：⭐⭐⭐⭐
-**信息来源**：[来源]
-
-[同上格式]
-
----
-
-## 💰 投融资快讯
-
-### [标题 X]
-- **公司**：[公司名称]
-- **轮次**：[融资轮次]
-- **金额**：[融资金额]
-- **投资方**：[投资机构]
-- **业务方向**：[业务描述]
-
----
-
-## 📋 政策与行业
-
-### [标题 X]
-[政策/行业新闻内容]
-
----
-
-## 🔮 趋势观察
+##  趋势观察
 
 [100-200 字的今日趋势总结和未来预测]
-
----
-
-## 📌 明日关注
-
-- [关注点 1]
-- [关注点 2]
-- [关注点 3]
 
 ---
 
@@ -239,29 +210,29 @@ summary: 今日科技/AI 行业热点事件汇总，包含 X 条重大发布、X
 
 ```bash
 # 发布科技热点日报
-wenyan publish -f tech_daily_YYYY-MM-DD.md
+wenyan publish -f {skill_dir}/daily_reports/tech_daily_YYYY-MM-DD.md
 
-# 发布 AI 热点日报
-wenyan publish -f ai_daily_YYYY-MM-DD.md
+# 发布AI热点日报
+wenyan publish -f {skill_dir}/daily_reports/ai_daily_YYYY-MM-DD.md
 ```
 
-## 使用方式
+## 错误处理
 
-### 手动触发
+### 常见错误及解决方案
 
-```bash
-# 生成并发布今日的科技/AI 热点日报
-执行 hot-paper-wechat-publish 技能
-```
+| 错误类型 | 可能原因 | 解决方案 |
+|---------|---------|---------|
+| 信息源无法访问 | 网络问题或网站维护 | 使用 `Tavily Search` 补充检索，或切换备用信息源 |
+| 微信发布失败 | AppID/AppSecret,IP白名单配置错误 | 检查配置是否正确 |
+| 热点数据不足 | 搜索范围过窄 | 放宽时间范围至 48 小时，扩大搜索关键词 |
+| 工具调用失败 | MCP 服务问题 | 使用 WebSearch/WebFetch 作为备选方案 |
+| 内容抓取超时 | 网页加载慢 | 减少单次抓取数量，分批处理 |
 
-### 定时任务（建议配置）
+### 降级策略
 
-在 crontab 中配置每日定时执行：
-
-```bash
-# 每天早上 8 点执行
-0 8 * * * cd ~/your-project-path && [执行命令]
-```
+1. **热点检索降级**：trends-hub → Tavily Search → WebSearch
+2. **内容采集降级**：Tavily Extract → WebFetch → 简略描述
+3. **发布降级**：wenyan publish 失败 → 手动保存 markdown 文件
 
 ## 输出文件
 
@@ -269,20 +240,31 @@ wenyan publish -f ai_daily_YYYY-MM-DD.md
 
 ```
 daily_reports/
-├── tech_daily_2024-01-15.md
-├── ai_daily_2024-01-15.md
-└── ...
+├── tech_daily_2026-03-20.md
+└── ai_daily_2026-03-20.md
 ```
 
-> **提示**：首次使用前请创建 `daily_reports/` 目录
+## 性能优化
+
+### 并行处理
+
+- 同时检索多个 trends-hub 信息源
+- 并行抓取多个网页内容
+- 批量处理多个搜索查询
+
+### 缓存策略
+
+- 记录已处理的热点事件
+- 避免重复抓取相同内容
+- 建立热点事件数据库（可选）
 
 ## 注意事项
 
 ### 信息准确性
 
 - 所有信息必须来自可靠来源
-- 重要数据需要多方验证
-- 标注信息来源
+- 重要数据需要多方验证（至少2个独立来源）
+- 标注信息来源和发布时间
 
 ### 时效性要求
 
@@ -298,27 +280,43 @@ daily_reports/
 
 ### 微信发布规范
 
-- 标题符合微信规范（不超过 64 字）
+- 标题符合微信规范（不超过64字，不用特殊字符）
 - 内容符合微信平台规则
 - 图片使用需注意版权
 
-## 所需工具
-
-- `trends-hub`：热点趋势检索工具
-- `Tavily`：搜索引擎工具
-- `WebSearch` 和 `WebFetch` ：网页搜索工具
-- `wenyan-cli`：微信公众号发布工具
-- 标准工具：curl、grep、awk 等
-
 ## 质量检查清单
 
-发布前检查：
+### 内容质量检查
 
-- [ ] 信息准确性已验证
-- [ ] 信息来源已标注
-- [ ] 格式符合模板要求
+- [ ] 信息准确性已验证（至少 2 个独立来源）
+- [ ] 信息来源已标注（官网/媒体名称）
+- [ ] 时间标注清晰（发布时间/整理时间）
+- [ ] 热度指数评级合理
+- [ ] 深度分析有洞察力
 - [ ] 无错别字和语病
-- [ ] 图片版权无问题
-- [ ] 链接可正常访问
-- [ ] 内容符合微信平台规则
 
+### 格式规范检查
+
+- [ ] Front Matter 元信息完整
+- [ ] Markdown 格式正确
+- [ ] 标题层级清晰
+- [ ] 封面图路径正确
+- [ ] 无失效链接
+
+### 合规性检查
+
+- [ ] 无版权争议内容
+- [ ] 符合微信公众平台运营规范
+- [ ] 无敏感内容
+- [ ] 引用内容已标注来源
+
+
+## 使用方式
+
+### 手动触发
+
+当用户请求生成科技/AI热点日报时，直接调用本技能：
+
+```
+生成今天的科技/AI热点日报并发布到微信公众号
+```
