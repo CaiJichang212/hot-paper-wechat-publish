@@ -44,8 +44,6 @@ export WECHAT_APP_SECRET="你的AppSecret"
 ```bash
 # 创建日报输出目录
 mkdir -p {skill_dir}/daily_reports
-
-
 ```
 
 ## 执行流程
@@ -59,7 +57,7 @@ mkdir -p {skill_dir}/daily_reports
 **筛选标准**：
 
 - 科技领域相关热点
--AI领域相关热点
+- AI领域相关热点
 - 热度值较高的话题
 - 影响力较大的事件
 
@@ -125,7 +123,7 @@ mkdir -p {skill_dir}/daily_reports
 **按领域分类**：
 
 - 科技综合
--AI技术
+- AI技术
 - 产品发布
 - 投融资
 - 行业政策
@@ -146,7 +144,7 @@ mkdir -p {skill_dir}/daily_reports
 
 #### 3.1 内容编撰
 
-选择热度最高、影响力最大、最有价值的 10 条事件，分别编撰成：
+选择热度最高、影响力最大、最有价值的**10**条事件，分别编撰成：
 
 **科技热点日报** 和 **AI 热点日报**
 
@@ -157,11 +155,11 @@ mkdir -p {skill_dir}/daily_reports
 ```markdown
 ---
 title: 科技热点日报|YYYY-MM-DD
-cover: asset/科技日报.png
+cover: {skill_dir}/asset/科技日报.png
 ---
 ```
 
-> **提示**：AI热点日报请使用 `cover: asset/AI日报.png`
+> **提示**：AI热点日报请使用 `cover: {skill_dir}/asset/AI日报.png`
 
 **正文格式**：
 
@@ -220,13 +218,13 @@ wenyan publish -f {skill_dir}/daily_reports/ai_daily_YYYY-MM-DD.md
 
 ### 常见错误及解决方案
 
-| 错误类型 | 可能原因 | 解决方案 |
-|---------|---------|---------|
-| 信息源无法访问 | 网络问题或网站维护 | 使用 `Tavily Search` 补充检索，或切换备用信息源 |
-| 微信发布失败 | AppID/AppSecret,IP白名单配置错误 | 检查配置是否正确 |
-| 热点数据不足 | 搜索范围过窄 | 放宽时间范围至 48 小时，扩大搜索关键词 |
-| 工具调用失败 | MCP 服务问题 | 使用 WebSearch/WebFetch 作为备选方案 |
-| 内容抓取超时 | 网页加载慢 | 减少单次抓取数量，分批处理 |
+| 错误类型    | 可能原因                      | 解决方案                             |
+| ------- | ------------------------- | -------------------------------- |
+| 信息源无法访问 | 网络问题或网站维护                 | 使用 `Tavily Search` 补充检索，或切换备用信息源 |
+| 微信发布失败  | AppID/AppSecret,IP白名单配置错误 | 检查配置是否正确                         |
+| 热点数据不足  | 搜索范围过窄                    | 放宽时间范围至 48 小时，扩大搜索关键词            |
+| 工具调用失败  | MCP 服务问题                  | 使用 WebSearch/WebFetch 作为备选方案     |
+| 内容抓取超时  | 网页加载慢                     | 减少单次抓取数量，分批处理                    |
 
 ### 降级策略
 
@@ -309,7 +307,6 @@ daily_reports/
 - [ ] 符合微信公众平台运营规范
 - [ ] 无敏感内容
 - [ ] 引用内容已标注来源
-
 
 ## 使用方式
 
