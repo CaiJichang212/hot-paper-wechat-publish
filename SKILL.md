@@ -1,8 +1,7 @@
-***
-
-name: hot-paper-wechat-publish\
+---
+name: "hot-paper-wechat-publish"  
 description: "生成科技/AI 热点日报并发布微信草稿箱。Invoke when user requests daily tech/AI news report or automated daily publishing."
-----------------------------------------------------------------------------------------------------------------------
+---
 
 # Hot Paper WeChat Publish
 
