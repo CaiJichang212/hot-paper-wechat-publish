@@ -1,106 +1,104 @@
 # 科技、AI行业信息源
 
+> **优化说明**：本文件包含各公司官方博客/新闻室链接，更适合自动化监控热点动态。
+
 ***
 
 ## 【International Tech Giants】国际科技巨头
 
-| 公司                               | 链接                          |
-| -------------------------------- | --------------------------- |
-| Apple: 苹果                        | <https://www.apple.com>     |
-| Microsoft: 微软                    | <https://www.microsoft.com> |
-| Alphabet (Google): 字母表（谷歌）       | <https://abc.xyz>           |
-| Amazon: 亚马逊                      | <https://www.amazon.com>    |
-| Meta Platforms: Meta（前 Facebook） | <https://about.meta.com>    |
-| NVIDIA: 英伟达                      | <https://www.nvidia.com>    |
-| Samsung Electronics: 三星电子        | <https://www.samsung.com>   |
-| IBM: IBM                         | <https://www.ibm.com>       |
-| Intel: 英特尔                       | <https://www.intel.com>     |
-| TSMC: 台积电                        | <https://www.tsmc.com>      |
+| 公司 | 官方博客/新闻室 |
+|------|--------------|
+| Apple: 苹果 | <https://www.apple.com/newsroom/> |
+| Microsoft: 微软 | <https://blogs.microsoft.com/> |
+| Alphabet (Google): 谷歌 | <https://blog.google/> |
+| Amazon: 亚马逊 | <https://www.aboutamazon.com/> |
+| Meta Platforms: Meta | <https://about.meta.com/blog/> |
+| NVIDIA: 英伟达 | <https://blogs.nvidia.com/> |
+| Samsung Electronics: 三星 | <https://news.samsung.com/> |
 
 ***
 
-## 【Domestic Tech Giants (China)】国内科技巨头
+## 【Domestic Tech Giants】国内科技巨头
 
-| 公司              | 链接                          |
-| --------------- | --------------------------- |
-| Baidu: 百度       | <https://www.baidu.com>     |
-| Huawei: 华为      | <https://www.huawei.com>    |
-| Tencent: 腾讯     | <https://www.tencent.com>   |
-| Alibaba: 阿里巴巴   | <https://www.alibaba.com>   |
-| JD.com: 京东      | <https://www.jd.com>        |
-| ByteDance: 字节跳动 | <https://www.bytedance.com> |
-
-***
-
-## 【International AI and LLM Companies】国际 AI 和大模型公司
-
-| 公司                           | 链接                          |
-| ---------------------------- | --------------------------- |
-| OpenAI: OpenAI               | <https://openai.com>        |
-| Google DeepMind: 谷歌 DeepMind | <https://deepmind.google>   |
-| Anthropic: Anthropic         | <https://www.anthropic.com> |
-| Mistral AI: Mistral AI       | <https://mistral.ai>        |
-| Cohere: Cohere               | <https://cohere.com>        |
+| 公司 | 官方博客/新闻室 |
+|------|--------------|
+| Baidu: 百度 | <https://developer.baidu.com/> |
+| Huawei: 华为 | <https://www.huawei.com/cn/newsroom/> |
+| Tencent: 腾讯 | <https://new.qq.com/>
+| Alibaba: 阿里巴巴 | <https://www.alibabagroup.com/cn/news/> |
+| ByteDance: 字节跳动 | <https://www.bytedance.com/zh/blog/> |
 
 ***
 
-## 【Domestic AI and LLM Companies (China)】国内 AI 和大模型公司
+## 【International AI Companies】国际AI公司
 
-| 公司                   | 链接                         |
-| -------------------- | -------------------------- |
-| Baidu Wenxin: 百度文心   | <https://wenxin.baidu.com> |
-| Zhipu AI: 智谱 AI      | <https://www.zhipuai.cn>   |
-| Moonshot AI: 月之暗面 AI | <https://moonshot.cn>      |
-| StepFun AI: 阶跃星辰 AI  | <https://www.stepfun.com>  |
-| 01.AI: 零一 AI         | <https://www.01.ai>        |
-
-***
-
-## 【International Unicorn Tech Companies】国际独角兽科技公司
-
-| 公司                     | 链接                           |
-| ---------------------- | ---------------------------- |
-| Stripe: Stripe         | <https://www.stripe.com>     |
-| SpaceX: SpaceX         | <https://www.spacex.com>     |
-| Databricks: Databricks | <https://www.databricks.com> |
-| UiPath: UiPath         | <https://www.uipath.com>     |
-| Chime: Chime           | <https://www.chime.com>      |
+| 公司 | 官方博客 |
+|------|---------|
+| OpenAI | <https://openai.com/blog> |
+| Google DeepMind | <https://deepmind.google/discover/blog/> |
+| Anthropic | <https://www.anthropic.com/news> |
+| Mistral AI | <https://mistral.ai/news/> |
+| Cohere | <https://cohere.com/blog> |
 
 ***
 
-## 【Domestic Unicorns (China)】国内独角兽公司
+## 【Domestic AI Companies】国内AI公司
 
-| 公司                 | 链接                          |
-| ------------------ | --------------------------- |
-| ByteDance: 字节跳动    | <https://www.bytedance.com> |
-| Shein: Shein       | <https://www.shein.com>     |
-| Xpeng Motors: 小鹏汽车 | <https://www.xpeng.com>     |
-| Meituan: 美团        | <https://www.meituan.com>   |
-| Didi Chuxing: 滴滴出行 | <https://xiaojukeji.com>    |
+| 公司 | 官方博客 |
+|------|---------|
+| Baidu Wenxin: 百度文心 | <https://wenxin.baidu.com/> |
+| Zhipu AI: 智谱AI | <https://www.zhipuai.cn/> |
+| Moonshot AI: 月之暗面 | <https://www.moonshot.cn/> |
+| StepFun AI: 阶跃星辰 | <https://www.stepfun.com/> |
+| 01.AI: 零一AI | <https://www.01.ai/> |
 
 ***
 
 ## 【International Tech Media】国际科技媒体
 
-| 媒体                         | 链接                           |
-| -------------------------- | ---------------------------- |
-| TechCrunch: TechCrunch     | <https://techcrunch.com>     |
-| The Verge: The Verge       | <https://www.theverge.com>   |
-| Wired: Wired               | <https://www.wired.com>      |
-| Ars Technica: Ars Technica | <https://arstechnica.com>    |
-| CB Insights: CB Insights   | <https://www.cbinsights.com> |
+| 媒体 | 链接 |
+|------|------|
+| TechCrunch | <https://techcrunch.com/> |
+| The Verge | <https://www.theverge.com/> |
+| Wired | <https://www.wired.com/> |
+| Ars Technica | <https://arstechnica.com/> |
+| Business Insider | <https://www.businessinsider.com/> |
 
 ***
 
-## 【Domestic Tech Media (China)】国内科技媒体
+## 【Domestic Tech Media】国内科技媒体
 
-| 媒体                    | 链接                         |
-| --------------------- | -------------------------- |
-| 36Kr: 36 氪            | <https://36kr.com>         |
-| TechNode: TechNode    | <https://technode.com>     |
-| GeekPark: 极客公园        | <https://www.geekpark.net> |
-| Lei Feng Network: 雷锋网 | <https://www.leiphone.com> |
-| Sina Tech: 新浪科技       | <https://tech.sina.com.cn> |
+| 媒体 | 链接 |
+|------|------|
+| 36Kr: 36氪 | <https://36kr.com/> |
+| TechNode: 动点科技 | <https://technode.com/> |
+| GeekPark: 极客公园 | <https://www.geekpark.net/> |
+| Lei Feng Network: 雷锋网 | <https://www.leiphone.com/> |
+| iFanr: 爱范儿 | <https://www.ifanr.com/> |
 
 ***
 
+## 【RSS订阅源】（推荐用于自动化监控）
+
+| 来源 | RSS链接 |
+|------|--------|
+| TechCrunch | <https://techcrunch.com/feed/> |
+| The Verge | <https://www.theverge.com/rss/index.xml> |
+| Wired | <https://www.wired.com/feed/rss> |
+| Ars Technica | <https://feeds.arstechnica.com/arstechnica/index> |
+| 36Kr | <https://36kr.com/feed> |
+
+***
+
+## 【行业报告与数据】
+
+| 来源 | 链接 |
+|------|------|
+| CB Insights | <https://www.cbinsights.com/research/> |
+| Gartner | <https://www.gartner.com/research/> |
+| McKinsey | <https://www.mckinsey.com/insights> |
+| Deloitte | <https://www2.deloitte.com/cn/zh/pages/technology.html> |
+
+***
+
+*最后更新：2026-03-21（验证并修复失效链接）*
