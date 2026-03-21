@@ -1,15 +1,15 @@
 ---
 name: "hot-paper-wechat-publish"
-description: "生成科技/AI热点日报并自动发布到微信公众号草稿箱。Invoke when user requests daily tech/AI news report or automated daily publishing. "
+description: "生成AI热点日报并自动发布到微信公众号草稿箱。Invoke when user requests daily AI news report or automated daily publishing. "
 ---
 
 # Hot Paper WeChat Publish
 
-本技能用于生成高质量的科技行业热点日报和AI行业热点日报，并自动发布到微信公众号草稿箱。
+本技能用于生成高质量的AI行业热点日报，并自动发布到微信公众号草稿箱。
 
 ## 功能概述
 
-- **热点检索**：全面检索科技领域和AI领域的当前热点事件
+- **热点检索**：全面检索AI领域的当前热点事件
 - **信息采集**：深入搜集每个热点话题的详细信息
 - **系统整理**：系统化整理与专业化分析信息
 - **日报生成**：生成结构清晰、内容详实的热点日报
@@ -52,11 +52,19 @@ mkdir -p {skill_dir}/daily_reports
 
 #### 1.1 检索热点事件
 
-使用 `trends-hub` 工具全面检索当前热点事件：
+使用 `trends-hub` 工具和 `Tavily Search` 工具全面检索当前热点事件：
+
+**⚠️ 时间过滤要求（严格执行）**：
+
+- **只选择发布时间在 24-48 小时内的热点事件**
+- 使用 `Tavily Search` 时必须设置 `days: 2` 参数限制时间范围
+- 使用 `time_range: "day"` 或 `time_range: "week"` 参数
+- 在筛选热点时必须检查每条信息的发布时间
+- **拒绝任何发布时间超过 48 小时的内容**
 
 **筛选标准**：
 
-- 科技领域相关热点
+- 发布时间在 24-48 小时内（必须）
 - AI领域相关热点
 - 热度值较高的话题
 - 影响力较大的事件
@@ -82,8 +90,9 @@ mkdir -p {skill_dir}/daily_reports
 **监控方法**：
 
 1. 从信息源文件（`{skill_dir}/assets/source_links.md`）读取官方链接
-2. 使用 运用 `WebSearch` 或`WebFetch` 工具获取各官网的最新动态
-3. 筛选出 24 小时内发布的重要消息
+2. 使用 `WebSearch` 或 `WebFetch` 工具获取各官网的最新动态
+3. **严格筛选出 24-48 小时内发布的重要消息**
+4. 在采集信息时，优先使用带时间过滤参数的搜索工具
 
 #### 1.3 深度信息采集
 
@@ -106,9 +115,10 @@ mkdir -p {skill_dir}/daily_reports
 
 **操作流程**：
 
-1. 使用 `Tavily Search` 广泛搜索
+1. 使用 `Tavily Search` 广泛搜索（必须设置 `days: 2` 或 `time_range: "day"`）
 2. 使用 `Tavily Extract` 抓取关键信息源
 3. 信息交叉验证
+4. **验证每条信息的发布时间，剔除超过 48 小时的内容**
 
 ### 第二阶段：信息处理与分析
 
@@ -127,6 +137,7 @@ mkdir -p {skill_dir}/daily_reports
 - 产品发布
 - 投融资
 - 行业政策
+- 其他
 
 **按重要性分级**：
 
@@ -146,7 +157,7 @@ mkdir -p {skill_dir}/daily_reports
 
 选择热度最高、影响力最大、最有价值的**10**条事件，分别编撰成：
 
-**科技热点日报** 和 **AI 热点日报**
+**AI热点日报**
 
 #### 3.2 日报格式模板
 
@@ -154,12 +165,10 @@ mkdir -p {skill_dir}/daily_reports
 
 ```markdown
 ---
-title: 科技热点日报|YYYY-MM-DD
-cover: {skill_dir}/asset/科技日报.png
+title: AI热点日报|YYYY-MM-DD
+cover: {skill_dir}/asset/AI日报.png
 ---
 ```
-
-> **提示**：AI热点日报请使用 `cover: {skill_dir}/asset/AI日报.png`
 
 **正文格式**：
 
@@ -207,9 +216,6 @@ cover: {skill_dir}/asset/科技日报.png
 使用 `wenyan-cli` 工具将生成的 Markdown 文章发布到微信公众号草稿箱：
 
 ```bash
-# 发布科技热点日报
-wenyan publish -f {skill_dir}/daily_reports/tech_daily_YYYY-MM-DD.md
-
 # 发布AI热点日报
 wenyan publish -f {skill_dir}/daily_reports/ai_daily_YYYY-MM-DD.md
 ```
@@ -238,7 +244,6 @@ wenyan publish -f {skill_dir}/daily_reports/ai_daily_YYYY-MM-DD.md
 
 ```
 daily_reports/
-├── tech_daily_2026-03-20.md
 └── ai_daily_2026-03-20.md
 ```
 
@@ -266,9 +271,11 @@ daily_reports/
 
 ### 时效性要求
 
-- 优先选择 24 小时内的热点
-- 重大事件可放宽至 48 小时
+- **严格优先选择 24 小时内的热点**
+- **绝对不超过 48 小时**
 - 标注事件发生时间
+- **在编撰日报前，必须再次检查每条热点的发布时间**
+- **如果某条热点超过 48 小时，必须替换为更新的热点**
 
 ### 内容质量
 
@@ -312,8 +319,8 @@ daily_reports/
 
 ### 手动触发
 
-当用户请求生成科技/AI热点日报时，直接调用本技能：
+当用户请求生成AI热点日报时，直接调用本技能：
 
 ```
-生成今天的科技/AI热点日报并发布到微信公众号
+生成今天的AI热点日报并发布到微信公众号
 ```
