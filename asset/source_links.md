@@ -1,7 +1,5 @@
 # 科技、AI行业信息源
 
-> **优化说明**：本文件包含各公司官方博客/新闻室链接，更适合自动化监控热点动态。
-
 ***
 
 ## 【International Tech Giants】国际科技巨头
@@ -11,8 +9,8 @@
 | Apple: 苹果 | <https://www.apple.com/newsroom/> |
 | Microsoft: 微软 | <https://blogs.microsoft.com/> |
 | Alphabet (Google): 谷歌 | <https://blog.google/> |
-| Amazon: 亚马逊 | <https://www.aboutamazon.com/> |
-| Meta Platforms: Meta | <https://about.meta.com/blog/> |
+| Amazon: 亚马逊 | <https://www.aboutamazon.com/newsroom/blog> |
+| Meta Platforms: Meta | <https://www.meta.com/newsroom/> |
 | NVIDIA: 英伟达 | <https://blogs.nvidia.com/> |
 | Samsung Electronics: 三星 | <https://news.samsung.com/> |
 
@@ -23,10 +21,10 @@
 | 公司 | 官方博客/新闻室 |
 |------|--------------|
 | Baidu: 百度 | <https://developer.baidu.com/> |
-| Huawei: 华为 | <https://www.huawei.com/cn/newsroom/> |
+| Huawei: 华为 | <https://www.huawei.com/cn/> |
 | Tencent: 腾讯 | <https://new.qq.com/>
 | Alibaba: 阿里巴巴 | <https://www.alibabagroup.com/cn/news/> |
-| ByteDance: 字节跳动 | <https://www.bytedance.com/zh/blog/> |
+| ByteDance: 字节跳动 | <https://www.bytedance.com/> |
 
 ***
 
@@ -34,7 +32,7 @@
 
 | 公司 | 官方博客 |
 |------|---------|
-| OpenAI | <https://openai.com/blog> |
+| OpenAI | <https://openai.com/index/blog> |
 | Google DeepMind | <https://deepmind.google/discover/blog/> |
 | Anthropic | <https://www.anthropic.com/news> |
 | Mistral AI | <https://mistral.ai/news/> |
@@ -49,8 +47,8 @@
 | Baidu Wenxin: 百度文心 | <https://wenxin.baidu.com/> |
 | Zhipu AI: 智谱AI | <https://www.zhipuai.cn/> |
 | Moonshot AI: 月之暗面 | <https://www.moonshot.cn/> |
-| StepFun AI: 阶跃星辰 | <https://www.stepfun.com/> |
-| 01.AI: 零一AI | <https://www.01.ai/> |
+| StepFun AI: 阶跃星辰 | <https://platform.stepfun.com/> |
+| 01.AI: 零一AI | <https://y.01.cn/> |
 
 ***
 
@@ -100,5 +98,3 @@
 | Deloitte | <https://www2.deloitte.com/cn/zh/pages/technology.html> |
 
 ***
-
-*最后更新：2026-03-21（验证并修复失效链接）*
