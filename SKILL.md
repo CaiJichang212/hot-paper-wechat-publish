@@ -18,16 +18,17 @@ description: "生成AI热点日报并自动发布到微信公众号草稿箱。I
 
 ## 环境准备
 
-### 1.1 安装 wenyan-cli
+### 1.1 安装 wenyan
 
-wenyan-cli 是微信公众号发布的命令行工具。
+wenyan 是微信公众号发布的命令行工具。
 
 ```bash
-# 使用 npm 全局安装
-npm install -g wenyan-cli
-
-# 验证安装
+# 验证是否已经安装，避免重复安装
 wenyan --version
+
+# 使用 npm 全局安装
+npm install -g @wenyan-md/cli
+
 ```
 
 ### 1.2 配置微信公众号
@@ -40,12 +41,6 @@ export WECHAT_APP_SECRET="你的AppSecret"
 
 > **提示**：AppID 和 AppSecret 需要在微信公众平台后台获取。登录微信公众平台 → 设置与开发 → 基本配置。
 
-### 1.3 创建必要的目录
-
-```bash
-# 创建日报输出目录
-mkdir -p {skill_dir}/daily_reports
-```
 
 ## 执行流程
 
@@ -210,7 +205,10 @@ cover: {skill_dir}/asset/AI日报.png
 
 **数据来源**：各公司官网，科技媒体
 **整理时间**：YYYY-MM-DD
-```
+
+---
+
+> **免责声明**：本文由人类口述意图、AI 生成文本、人类审阅纠偏完成。文中观点代表作者个人经验，AI 生成内容已经过人工审阅，但仍可能存在表述不当之处。欢迎讨论，求轻喷 🙏
 
 ### 第四阶段：质量审核（发布前必执行）
 
@@ -387,7 +385,7 @@ cover: {skill_dir}/asset/AI日报.png
 
 **⚠️ 前置条件**：必须完成质量审核并获得"通过"结论后，方可执行发布。
 
-使用 `wenyan-cli` 工具将生成的 Markdown 文章发布到微信公众号草稿箱：
+使用 `wenyan` 工具将生成的 Markdown 文章发布到微信公众号草稿箱：
 
 ```bash
 # 发布AI热点日报（需确认审核已通过）
@@ -419,10 +417,10 @@ wenyan publish -f {skill_dir}/daily_reports/ai_daily_YYYY-MM-DD.md
 
 ## 输出文件
 
-生成的日报文件将保存在工作目录下的 `daily_reports/` 文件夹：
+生成的日报文件将保存在工作目录下的 `{skill_dir}/daily_reports/` 文件夹：
 
 ```
-daily_reports/
+{skill_dir}/daily_reports/
 ├── ai_daily_2026-03-20.md          # AI热点日报
 └── audit_log_2026-03-20.md         # 质量审核日志
 ```
