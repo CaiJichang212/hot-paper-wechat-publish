@@ -69,7 +69,7 @@ export WECHAT_APP_SECRET="你的AppSecret"
 
 读取并监控以下官方渠道的最新消息：
 
-**信息源文件**：`{skill_dir}/assets/source_links.md`
+**信息源文件**：`{skill_dir}/asset/source_links.md`
 
 **监控范围**：
 
@@ -85,7 +85,7 @@ export WECHAT_APP_SECRET="你的AppSecret"
 
 **监控方法**：
 
-1. 从信息源文件（`{skill_dir}/assets/source_links.md`）读取官方链接
+1. 从信息源文件（`{skill_dir}/asset/source_links.md`）读取官方链接
 2. 使用 `WebSearch` 或 `WebFetch` 工具获取各官网的最新动态
 3. **严格筛选出 24-48 小时内发布的重要消息**
 4. 在采集信息时，优先使用带时间过滤参数的搜索工具

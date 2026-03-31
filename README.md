@@ -37,9 +37,9 @@
 
 ```
 hot-paper-wechat-publish/
-├── assets/                    # 资源文件
+├── asset/                    # 资源文件
 │   ├── 科技日报.png           # 科技日报封面图
-│   ├── AI 日报.png            # AI 日报封面图
+│   ├── AI日报.png            # AI 日报封面图
 │   ├── 微信公众号头像.png      # 公众号头像
 │   └── source_links.md        # 官方信息源链接
 ├── daily_reports/             # 日报输出目录
@@ -51,7 +51,7 @@ hot-paper-wechat-publish/
 
 ## 🛠️ 使用方式
 
-本工具作为 Trae IDE 的技能（Skill）使用，当需要：
+当需要：
 - 生成科技/AI 热点日报
 - 自动发布内容到微信草稿箱
 
@@ -63,7 +63,7 @@ hot-paper-wechat-publish/
 ```markdown
 ---
 title: 科技热点日报|2024-01-15
-cover: asset/科技日报.png
+cover: {skill_dir}/asset/科技日报.png
 tags:
   - 科技日报
   - AI
@@ -89,7 +89,7 @@ summary: 今日科技/AI 行业热点事件汇总
 ## 🔗 相关资源
 
 - [技能详细文档](SKILL.md) - 完整的执行流程和操作指南
-- [信息源列表](assets/source_links.md) - 监控的官方渠道链接
+- [信息源列表]({skill_dir}/asset/source_links.md) - 监控的官方渠道链接
 
 ## 📝 注意事项
 
@@ -102,5 +102,3 @@ summary: 今日科技/AI 行业热点事件汇总
 7. 审核日志必须完整记录所有修改和核验过程
 
 ---
-
-**最后更新**: 2026-03-22
